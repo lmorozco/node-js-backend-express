@@ -27,6 +27,12 @@ app.get("/products", (req, res)=>{
   res.json(products);
 });
 
+//Todo lo que es específico (/products/filter), debe de ir antes de lo que es dinámico(/products/:id)
+app.get("/products/filter", (req, res) =>{
+  res.send("Yo soy un filter")
+});
+
+
 app.get("/products/:id", (req, res) =>{
   const {id} = req.params;
   res.json({
@@ -35,6 +41,7 @@ app.get("/products/:id", (req, res) =>{
     price: "2000",
   });
 });
+
 
 app.get("/users", (req, res) =>{
   const {limit, offset} = req.query;
